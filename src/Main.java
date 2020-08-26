@@ -5,8 +5,10 @@ public class Main {
     public static void main(String args[]) {
         // Register_Main newReg = new Register_Main();
         // newReg.Register_Main();
-        Login_Home newReg = new Login_Home();
-        newReg.main();
+        // Login_Home newReg = new Login_
+        // newReg.main();
+        Edit_Details_OnlyAdmin newEdit=new Edit_Details_OnlyAdmin();
+        newEdit.main();
     }
 
 }

@@ -2,7 +2,6 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Iterator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -43,6 +42,7 @@ public class Login_Main {
                         if (inp_username.equals(Username) && inp_password.equals(Pwd)) {
                             counter1 = true;
                             passRole = Role;
+                            //here
                             System.out.println("Login successfully");
                             break;
                         }

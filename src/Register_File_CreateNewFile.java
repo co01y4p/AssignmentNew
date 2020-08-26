@@ -5,7 +5,6 @@ import java.io.IOException;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 class Register_File_CreateNewFile {
 
@@ -13,7 +12,6 @@ class Register_File_CreateNewFile {
         //double[] marksArray = {98,78,80};
 
         JSONObject registerNewUserDetails = new JSONObject();
-        JSONParser jsonParser = new JSONParser();
 
         Scanner inputRegister = new Scanner(System.in);
         System.out.println("Welcome to Registration!");
@@ -32,7 +30,8 @@ class Register_File_CreateNewFile {
 
         Register_File_Input_Role newObj = new Register_File_Input_Role();
         String tempRole = String.valueOf(newObj.main());
-        
+        registerNewUserDetails.put("Role", tempRole);
+
         if (tempRole.equals("1")) {//Admin
             registerNewUserDetails.put("Programme", "");
 
