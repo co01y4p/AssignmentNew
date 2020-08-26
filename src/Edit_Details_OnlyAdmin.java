@@ -42,7 +42,6 @@ public class Edit_Details_OnlyAdmin {
                     for (Object o : a) {
 
                         JSONObject User = (JSONObject) o;
-                        
                         // fixed attributes: programme,
                         String Username = (String) User.get("Username");
                         String Pwd = (String) User.get("Password");

@@ -28,12 +28,12 @@ public class Edit_Details_OnlyAdmin_Loop {
                         String Username = (String) User.get("Username");
                         String Pwd = (String) User.get("Password");
                         if (credUserName.equals(Username) && credPwd.equals(Pwd)) {
-                            JSONObject EditDetails =(JSONObject)User;
+                            //JSONObject EditDetails =(JSONObject)User;
                             //System.out.println("EditDetails is"+EditDetails);
 
                             // JSONObject EditDetails = new JSONObject();
                             //System.out.println(EditDetails);
-                            EditDetails.put("Name", newVal);
+                            User.put("Name", newVal);
 
                         }
 
