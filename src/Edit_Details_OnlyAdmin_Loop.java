@@ -13,8 +13,10 @@ public class Edit_Details_OnlyAdmin_Loop {
         try {
             JSONParser parser = new JSONParser();
 
+
             JSONArray a = (JSONArray) parser.parse(new FileReader(Main.databasepath));
 //System.out.println("a is"+a);
+
             switch (Option) {
                 case 1:
 
@@ -23,17 +25,16 @@ public class Edit_Details_OnlyAdmin_Loop {
 
                         JSONObject User = (JSONObject) o;
                         // System.out.println("user is:" + User);
-                        System.out.println("user is"+User);
 
                         String Username = (String) User.get("Username");
                         String Pwd = (String) User.get("Password");
+                        JSONObject new1= (JSONObject) User.get("Name");
                         if (credUserName.equals(Username) && credPwd.equals(Pwd)) {
                             //JSONObject EditDetails =(JSONObject)User;
                             //System.out.println("EditDetails is"+EditDetails);
 
                             // JSONObject EditDetails = new JSONObject();
-                            //System.out.println(EditDetails);
-                            User.put("Name", newVal);
+                            new1.put("Name", newVal);
 
                         }
 
