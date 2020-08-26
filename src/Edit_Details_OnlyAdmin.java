@@ -51,6 +51,7 @@ public class Edit_Details_OnlyAdmin {
                             int Choice = inp.nextInt();
                             switch (Choice) {
                                 case 1:
+                                
                                 case 2:
                                 case 3:
                                     // need replace all repeated value in json
@@ -59,6 +60,7 @@ public class Edit_Details_OnlyAdmin {
                         }
 
                     }
+                    //here
                     if (counter1 == false) {
                         System.out.println("Invalid credentials, please try again");
                     }
