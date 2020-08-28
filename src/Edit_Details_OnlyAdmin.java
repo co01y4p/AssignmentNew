@@ -19,7 +19,6 @@ public class Edit_Details_OnlyAdmin {
     public void main() {
 
         try {
-
             while (counter1 == false) {
                 System.out.println("Welcome back to System!");
                 System.out.println("1. Edit Details");
@@ -99,13 +98,12 @@ public class Edit_Details_OnlyAdmin {
                     loopNew.Edit_Details_OnlyAdmin_Loop_main(passingChoice, NewChangesVar, passingUserName,
                             passingPassword);
 
-                    // Edit_Details_OnlyAdmin_Loop.Edit_Details_OnlyAdmin_Loop(passingChoice,
-                    // NewChangesVar,passingUserName, passingPassword);
                     if (counter1 == false) {
                         System.out.println("Invalid credentials, please try again");
-                    }
+                    } // coun1 == true
                 } else if (choice1 == 2) {
                     counter1 = true;
+
                     // go to exit
                 }
 

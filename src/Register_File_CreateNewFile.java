@@ -1,5 +1,6 @@
 
 import java.io.*;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.io.IOException;
 
@@ -9,9 +10,8 @@ import org.json.simple.JSONObject;
 class Register_File_CreateNewFile {
 
     public void Register() {
-        //double[] marksArray = {98,78,80};
 
-        JSONObject registerNewUserDetails = new JSONObject();
+        HashMap<String, Object> registerNewUserDetails = new HashMap<String, Object>();
 
         Scanner inputRegister = new Scanner(System.in);
         System.out.println("Welcome to Registration!");
@@ -33,24 +33,14 @@ class Register_File_CreateNewFile {
         registerNewUserDetails.put("Role", tempRole);
 
         if (tempRole.equals("1")) {//Admin
-            registerNewUserDetails.put("Programme", "");
+            registerNewUserDetails.put("Teachings_Modules", "");
 
-            registerNewUserDetails.put("Module", "");
-
-            registerNewUserDetails.put("AssesType", "");
-
-            registerNewUserDetails.put("Marks", "");
+            registerNewUserDetails.put("Learning_Modules", "");
         }
         else if (tempRole.equals("2")) {//Lecturer
-            Register_File_Input_Programme newObj2 = new Register_File_Input_Programme();
-            registerNewUserDetails.put("Programme", String.valueOf(newObj2.main()));
-
-            Register_File_Input_Module newObj3 = new Register_File_Input_Module();
-            registerNewUserDetails.put("Module", String.valueOf(newObj3.main()));
-
-            registerNewUserDetails.put("AssesType", "");
-
-            registerNewUserDetails.put("Marks", "");
+            Register_File_Input_Teaching_Modules teachingObj=new Register_File_Input_Teaching_Modules();
+            registerNewUserDetails.put("Teaching_Modules", teachingObj.moduleTeachingList());
+            registerNewUserDetails.put("Learning_Modules", "");
         }
         else{//Student
             Register_File_Input_Programme newObj2 = new Register_File_Input_Programme();
@@ -81,6 +71,6 @@ class Register_File_CreateNewFile {
             System.out.println("An error occured");
 
         }
-
+        inputRegister.close();
     }
 }

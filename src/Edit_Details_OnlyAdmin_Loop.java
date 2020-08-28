@@ -20,63 +20,53 @@ class Edit_Details_OnlyAdmin_Loop {
 
             switch (Option) {
                 case 1:
-
                     for (Object o : a) {
-                        // System.out.println("o is"+o);
-
                         JSONObject User = (JSONObject) o;
-                        // System.out.println("user is:" + User);
-
                         String Username = (String) User.get("Username");
                         String Pwd = (String) User.get("Password");
-                        // JSONObject new1= (JSONObject) User.get("Name");
                         if (credUserName.equals(Username) && credPwd.equals(Pwd)) {
-                            // System.out.println(User.remove("Name"));
                             User.put("Name", newVal);
                             FileWriter file = new FileWriter(Main.databasepath);
                             file.write(a.toJSONString());
                             file.flush();
-                            // System.out.println("updated successfully");
-
+                            file.close();
+                            
                         }
-
                     }
+                    System.out.println("Name Updated Successfully");
                     break;
                 case 2:
                     for (Object o : a) {
                         JSONObject User = (JSONObject) o;
-                        // fixed attributes: programme,
                         String Username = (String) User.get("Username");
                         String Pwd = (String) User.get("Password");
-                        // String Role = (String) User.get("Role");
-
                         if (credUserName.equals(Username) && credPwd.equals(Pwd)) {
-                            JSONObject EditDetails = new JSONObject();
-                            // EditDetails.remove("Username");
-                            EditDetails.put("Username", newVal);
-
+                            User.put("Username", newVal);
+                            FileWriter file = new FileWriter(Main.databasepath);
+                            file.write(a.toJSONString());
+                            file.flush();
+                            file.close();
+                            
                         }
-
                     }
+                    System.out.println("Username Updated Successfully");
                     break;
                 case 3:
                     for (Object o : a) {
                         JSONObject User = (JSONObject) o;
-                        // fixed attributes: programme,
                         String Username = (String) User.get("Username");
                         String Pwd = (String) User.get("Password");
-                        // String Role = (String) User.get("Role");
-
                         if (credUserName.equals(Username) && credPwd.equals(Pwd)) {
-                            JSONObject EditDetails = new JSONObject();
-                            EditDetails.remove("Password");
-                            EditDetails.put("Password", newVal);
-
+                            User.put("Password", newVal);
+                            FileWriter file = new FileWriter(Main.databasepath);
+                            file.write(a.toJSONString());
+                            file.flush();
+                            file.close();
+                           
                         }
-
                     }
+                    System.out.println("Password Updated Successfully");
                     break;
-
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
