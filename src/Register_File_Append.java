@@ -34,32 +34,32 @@ public class Register_File_Append {
             String inp_password = inputRegister.nextLine();
             registerNewUserDetails.put("Password", inp_password);
 
-            try{
-            JSONParser parser = new JSONParser();
-            JSONArray a = (JSONArray) parser.parse(new FileReader(Main.databasepath));
-            for (Object o : a) {
-                JSONObject User = (JSONObject) o;
-                String Username = (String) User.get("Username");
-                String Pwd = (String) User.get("Password");
-                if (inp_userID.equals(Username) && inp_password.equals(Pwd)) {
-                   counter2=true;    
-                   break;
+            try {
+                JSONParser parser = new JSONParser();
+                JSONArray a = (JSONArray) parser.parse(new FileReader(Main.databasepath));
+                for (Object o : a) {
+                    JSONObject User = (JSONObject) o;
+                    String Username = (String) User.get("Username");
+                    String Pwd = (String) User.get("Password");
+                    if (inp_userID.equals(Username) && inp_password.equals(Pwd)) {
+                        counter2 = true;
+                        break;
+                    }
                 }
+                if (counter2 == true) {
+                    System.out.println("Duplicated Username or Password!");
+                    System.out.println("Please try again!");
+                }
+                if (counter2 == false) {
+                    counter1 = true;
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
-            if(counter2==true){
-                System.out.println("Duplicated Username or Password!");
-                System.out.println("Please try again!");
-            }
-            if (counter2==false){
-                counter1=true;
-            }
-            }catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
         }
 
         Register_File_Input_Role newObj = new Register_File_Input_Role();
@@ -71,26 +71,16 @@ public class Register_File_Append {
 
             registerNewUserDetails.put("Learning_Modules", "");
 
-
         } else if (tempRole.equals("2")) {// Lecturer
-            Register_File_Input_Teaching_Modules teachingObj=new Register_File_Input_Teaching_Modules();
+            Register_File_Input_Teaching_Modules teachingObj = new Register_File_Input_Teaching_Modules();
             registerNewUserDetails.put("Teaching_Modules", teachingObj.moduleTeachingList());
             registerNewUserDetails.put("Learning_Modules", "");
 
-
-
         } else {// Student
-            registerNewUserDetails.put("Teaching_Modules","");
+            registerNewUserDetails.put("Teaching_Modules", "");
+            Register_File_Input_Learning_Modules_Names learningObj = new Register_File_Input_Learning_Modules_Names();
 
-            // Register_File_Input_Module learningObj = new Register_File_Input_Module();
-            // registerNewUserDetails.put("Learning_Modules", String.valueOf(newObj3.main()));
-
-            registerNewUserDetails.put("Learning_Modules", "");
-
-
-            // Register_File_Input_AssesType newObj4 = new Register_File_Input_AssesType();
-            // registerNewUserDetails.put("AssesType", String.valueOf(newObj4.main()));
-
+            registerNewUserDetails.put("Learning_Modules", learningObj.moduleLearningList());
 
         }
 

@@ -32,35 +32,28 @@ class Register_File_CreateNewFile {
         String tempRole = String.valueOf(newObj.main());
         registerNewUserDetails.put("Role", tempRole);
 
-        if (tempRole.equals("1")) {//Admin
+        if (tempRole.equals("1")) {// Admin
             registerNewUserDetails.put("Teachings_Modules", "");
 
             registerNewUserDetails.put("Learning_Modules", "");
-        }
-        else if (tempRole.equals("2")) {//Lecturer
-            Register_File_Input_Teaching_Modules teachingObj=new Register_File_Input_Teaching_Modules();
+        } else if (tempRole.equals("2")) {// Lecturer
+            Register_File_Input_Teaching_Modules teachingObj = new Register_File_Input_Teaching_Modules();
             registerNewUserDetails.put("Teaching_Modules", teachingObj.moduleTeachingList());
             registerNewUserDetails.put("Learning_Modules", "");
-        }
-        else{//Student
-            Register_File_Input_Programme newObj2 = new Register_File_Input_Programme();
-            registerNewUserDetails.put("Programme", String.valueOf(newObj2.main()));
+        } else {// Student
+            registerNewUserDetails.put("Teaching_Modules", "");
+            Register_File_Input_Learning_Modules_Names learningObj = new Register_File_Input_Learning_Modules_Names();
 
-            Register_File_Input_Module newObj3 = new Register_File_Input_Module();
-            registerNewUserDetails.put("Module", String.valueOf(newObj3.main()));
+            registerNewUserDetails.put("Learning_Modules", learningObj.moduleLearningList());
 
-            Register_File_Input_AssesType newObj4 = new Register_File_Input_AssesType();
-            registerNewUserDetails.put("AssesType", String.valueOf(newObj4.main()));
-
-            registerNewUserDetails.put("Marks", "");
         }
 
-//
+        //
         JSONArray registerNewUserList = new JSONArray();
 
         registerNewUserList.add(registerNewUserDetails);
 
-        try ( FileWriter file = new FileWriter(Main.databasepath)) {
+        try (FileWriter file = new FileWriter(Main.databasepath)) {
 
             file.write(registerNewUserList.toJSONString());
             file.flush();
