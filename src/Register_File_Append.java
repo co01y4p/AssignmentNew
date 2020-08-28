@@ -9,15 +9,15 @@ import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import java.io.*;
+import java.util.HashMap;
 import java.util.Scanner;
-import org.json.simple.JSONObject;
 
 public class Register_File_Append {
 
     /**
      */
     public void Register() {
-        JSONObject registerNewUserDetails = new JSONObject();
+        HashMap<String,Object> registerNewUserDetails = new HashMap<String,Object>();
         JSONParser jsonParser = new JSONParser();
 
         Scanner inputRegister = new Scanner(System.in);
@@ -48,7 +48,7 @@ public class Register_File_Append {
 
             registerNewUserDetails.put("Marks", "");
         }
-        else if (tempRole.equals("")) {//Lecturer
+        else if (tempRole.equals("2")) {//Lecturer
             Register_File_Input_Programme newObj2 = new Register_File_Input_Programme();
             registerNewUserDetails.put("Programme", String.valueOf(newObj2.main()));
 
@@ -75,7 +75,6 @@ public class Register_File_Append {
         try {
             Object obj = jsonParser.parse(new FileReader(Main.databasepath));
             JSONArray jsonArray = (JSONArray) obj;
-
             jsonArray.add(registerNewUserDetails);
 
             FileWriter file = new FileWriter(Main.databasepath);
@@ -86,6 +85,7 @@ public class Register_File_Append {
         } catch (ParseException | IOException e) {
             e.printStackTrace();
         }
+        inputRegister.close();
 
     }
 }

@@ -95,13 +95,12 @@ public class Edit_Details_OnlyAdmin {
                         }
                     }
 
-                    System.out.println("Passing Choice: " + passingChoice);
-                    System.out.println("Passing Username: " + passingUserName);
-                    System.out.println("Passing Password: " + passingPassword);
-                    System.out.println("New Values: " + NewChangesVar);
+                    Edit_Details_OnlyAdmin_Loop loopNew = new Edit_Details_OnlyAdmin_Loop();
+                    loopNew.Edit_Details_OnlyAdmin_Loop_main(passingChoice, NewChangesVar, passingUserName,
+                            passingPassword);
 
-                    Edit_Details_OnlyAdmin_Loop.Edit_Details_OnlyAdmin_Loop(passingChoice, NewChangesVar,
-                            passingUserName, passingPassword);
+                    // Edit_Details_OnlyAdmin_Loop.Edit_Details_OnlyAdmin_Loop(passingChoice,
+                    // NewChangesVar,passingUserName, passingPassword);
                     if (counter1 == false) {
                         System.out.println("Invalid credentials, please try again");
                     }
@@ -119,6 +118,7 @@ public class Edit_Details_OnlyAdmin {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
     }
 
 }
