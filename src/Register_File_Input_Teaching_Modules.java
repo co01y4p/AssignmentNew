@@ -15,11 +15,12 @@ public class Register_File_Input_Teaching_Modules {
         moduleList.add("CITW");
         moduleList.add("SDM");
         ArrayList<String> modulePickedList = new ArrayList<>();
-        System.out.println("Please Enter the Lecturer's Teachings ");
+        System.out.println("Modules available");
         System.out.println("1. OODJ     2. PSMOD");
         System.out.println("3. DTM      4. IMT");
         System.out.println("5. MCFC     6. COMT");
         System.out.println("7. CITW     8. SDM");
+        System.out.println("Please Enter the Lecturer's Teachings ");
 
         System.out.println("First Teaching Module: ");
         int inp_Option = ipt.nextInt();

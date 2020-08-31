@@ -38,12 +38,14 @@ public class Edit_Details_OnlyAdmin {
                     String NewChangesVar = "";
                     String passingUserName = "";
                     String passingPassword = "";
+
                     for (Object o : a) {
 
                         JSONObject User = (JSONObject) o;
                         // fixed attributes: programme,
                         String Username = (String) User.get("Username");
                         String Pwd = (String) User.get("Password");
+
                         // String Role = (String) User.get("Role");
 
                         if (inp_username.equals(Username) && inp_password.equals(Pwd)) {
@@ -53,10 +55,13 @@ public class Edit_Details_OnlyAdmin {
                             String UsernameOld = (String) User.get("Username");
                             String PwdOld = (String) User.get("Password");
                             String NameOld = (String) User.get("Name");
+                            String CohortsOld = (String) User.get("Cohorts");
+
                             System.out.println("Enter attributes to be edit:");
                             System.out.println("1. Name");
                             System.out.println("2. Username");
                             System.out.println("3. Password");
+                            System.out.println("4. Cohorts");
 
                             int Choice = inp.nextInt();
                             switch (Choice) {
@@ -87,7 +92,18 @@ public class Edit_Details_OnlyAdmin {
                                     passingUserName = Username;
                                     passingPassword = Pwd;
                                     passingChoice = Choice;
+
                                     break;
+                                case 4:
+                                    System.out.println("You are about to update the Cohorts.");
+                                    System.out.println("Old value: " + CohortsOld);
+                                    System.out.println("Please enter New Cohorts: ");
+                                    Register_File_Input_Cohorts cohortObj = new Register_File_Input_Cohorts();
+                                    NewChangesVar=cohortObj.studentCohort();
+                                    passingUserName = Username;
+                                    passingPassword = Pwd;
+                                    passingChoice = Choice;
+
                             }
                             break;
 

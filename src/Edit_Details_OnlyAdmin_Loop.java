@@ -30,7 +30,7 @@ class Edit_Details_OnlyAdmin_Loop {
                             file.write(a.toJSONString());
                             file.flush();
                             file.close();
-                            
+
                         }
                     }
                     System.out.println("Name Updated Successfully");
@@ -46,7 +46,7 @@ class Edit_Details_OnlyAdmin_Loop {
                             file.write(a.toJSONString());
                             file.flush();
                             file.close();
-                            
+
                         }
                     }
                     System.out.println("Username Updated Successfully");
@@ -62,11 +62,28 @@ class Edit_Details_OnlyAdmin_Loop {
                             file.write(a.toJSONString());
                             file.flush();
                             file.close();
-                           
+
                         }
                     }
                     System.out.println("Password Updated Successfully");
                     break;
+                case 4:
+                    for (Object o : a) {
+                        JSONObject User = (JSONObject) o;
+                        String Username = (String) User.get("Username");
+                        String Pwd = (String) User.get("Password");
+                        if (credUserName.equals(Username) && credPwd.equals(Pwd)) {
+                            User.put("Cohorts", newVal);
+                            FileWriter file = new FileWriter(Main.databasepath);
+                            file.write(a.toJSONString());
+                            file.flush();
+                            file.close();
+
+                        }
+                    }
+                    System.out.println("Cohorts Updated Successfully");
+                    break;
+
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

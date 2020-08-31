@@ -70,17 +70,20 @@ public class Register_File_Append {
             registerNewUserDetails.put("Teachings_Modules", "");
 
             registerNewUserDetails.put("Learning_Modules", "");
+            registerNewUserDetails.put("Cohorts","");
 
         } else if (tempRole.equals("2")) {// Lecturer
             Register_File_Input_Teaching_Modules teachingObj = new Register_File_Input_Teaching_Modules();
             registerNewUserDetails.put("Teaching_Modules", teachingObj.moduleTeachingList());
             registerNewUserDetails.put("Learning_Modules", "");
+            registerNewUserDetails.put("Cohorts","");
 
         } else {// Student
             registerNewUserDetails.put("Teaching_Modules", "");
             Register_File_Input_Learning_Modules_Names learningObj = new Register_File_Input_Learning_Modules_Names();
-
             registerNewUserDetails.put("Learning_Modules", learningObj.moduleLearningList());
+            Register_File_Input_Cohorts newCo = new Register_File_Input_Cohorts();
+            registerNewUserDetails.put("Cohorts",newCo.studentCohort());
 
         }
 
