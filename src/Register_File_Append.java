@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Register_File_Append {
+
+    
     boolean counter1 = false;
 
     /**

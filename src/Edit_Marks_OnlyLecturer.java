@@ -10,7 +10,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+
+
 class Edit_Marks_OnlyLecturer {
+    
     boolean counter2 = true;
 
     public void main() {
@@ -44,13 +47,11 @@ class Edit_Marks_OnlyLecturer {
                             JSONObject whichUserAllLModule = (JSONObject) whichUser.get("Learning_Modules");
 
                             System.out.println("Student " + Name + " having following modules:");
-                            int i = 1;
                             for (Object key : whichUserAllLModule.keySet()) {
                                 // based on you key types
                                 String keyStr = (String) key;
                                 // Print key
                                 System.out.println("Module " + keyStr);
-                                i++;
                             }
 
                             // System.out.println("1. OODJ 2. PSMOD");

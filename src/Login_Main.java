@@ -6,6 +6,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Login_Main {
@@ -14,8 +16,10 @@ public class Login_Main {
     Scanner inp = new Scanner(System.in);
     boolean counter1 = false;
     String passRole;
+    String passUsername;
+    String passName;
 
-    public String main() {
+    public ArrayList main() {
 
         try {
 
@@ -38,10 +42,13 @@ public class Login_Main {
                         JSONObject User = (JSONObject) o;
                         String Username = (String) User.get("Username");
                         String Pwd = (String) User.get("Password");
+                        String Nam = (String) User.get("Name");
                         String Role = (String) User.get("Role");
                         if (inp_username.equals(Username) && inp_password.equals(Pwd)) {
                             counter1 = true;
                             passRole = Role;
+                            passUsername=inp_username;
+                            passName=Nam;
                             //here
                             System.out.println("Login successfully");
                             break;
@@ -65,7 +72,12 @@ public class Login_Main {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return passRole;
+        ArrayList<String> passData = new ArrayList<>();
+        passData.add(passRole);
+        passData.add(passUsername);
+        passData.add(passName);
+
+        return passData;
     }
 
 }
